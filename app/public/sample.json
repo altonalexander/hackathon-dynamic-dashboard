@@ -1,0 +1,682 @@
+{
+ "ok": true,
+ "id": "vdmkxir9p9",
+ "prompt": "West region sales manager, pipeline review",
+ "spec": {
+  "title": "West Region Pipeline Review",
+  "subtitle": "For Marcus Webb, West Region Sales Manager \u2014 week of Sep 11, 2026",
+  "domain": "sales",
+  "accent": "#2563eb",
+  "filters": [
+   "Region: West",
+   "Quarter: Q3 2026",
+   "Stage: Open",
+   "Team: 6 AEs"
+  ],
+  "insights": [
+   "$1.42M open pipeline across 18 deals, but $410K (5 deals) is stuck in Negotiation >21 days \u2014 prioritize DEAL-1188 and DEAL-1191 before they slip to Q4.",
+   "Win rate is 29% (7 won of 24 closed) vs 35% target \u2014 Proposal-stage conversion is the leak, dropping from 22 to 9 deals.",
+   "Avg sales cycle is 46 days, up 15% vs prior period \u2014 Jenna Park's deals average 61 days, the slowest on the team.",
+   "3 deals worth $267K have had no activity in 14+ days (DEAL-1179, DEAL-1183, DEAL-1195) \u2014 flag for re-engagement this week."
+  ],
+  "datasets": [
+   {
+    "id": "deals",
+    "title": "West Region Open & Recent Closed Deals",
+    "columns": [
+     {
+      "key": "id",
+      "label": "Deal ID"
+     },
+     {
+      "key": "account",
+      "label": "Account"
+     },
+     {
+      "key": "owner",
+      "label": "Owner"
+     },
+     {
+      "key": "stage",
+      "label": "Stage"
+     },
+     {
+      "key": "amount",
+      "label": "Amount",
+      "format": "currency"
+     },
+     {
+      "key": "age",
+      "label": "Age (days)",
+      "format": "number"
+     },
+     {
+      "key": "lastActivity",
+      "label": "Last Activity (days ago)",
+      "format": "number"
+     }
+    ],
+    "rows": [
+     {
+      "id": "DEAL-1171",
+      "account": "Cascade Foods",
+      "owner": "Marcus Webb",
+      "stage": "Closed Won",
+      "amount": 92000,
+      "age": 38,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1172",
+      "account": "Rainier Logistics",
+      "owner": "Jenna Park",
+      "stage": "Closed Won",
+      "amount": 64000,
+      "age": 55,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1173",
+      "account": "Sunset Retail Group",
+      "owner": "Tomas Diaz",
+      "stage": "Closed Lost",
+      "amount": 48000,
+      "age": 41,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1174",
+      "account": "Pioneer Health",
+      "owner": "Marcus Webb",
+      "stage": "Closed Won",
+      "amount": 110000,
+      "age": 49,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1175",
+      "account": "Bluewater Systems",
+      "owner": "Aisha Cole",
+      "stage": "Closed Lost",
+      "amount": 31000,
+      "age": 33,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1176",
+      "account": "Cedar Point Bank",
+      "owner": "Jenna Park",
+      "stage": "Closed Won",
+      "amount": 78000,
+      "age": 63,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1177",
+      "account": "Harborview Media",
+      "owner": "Tomas Diaz",
+      "stage": "Closed Won",
+      "amount": 55000,
+      "age": 29,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1178",
+      "account": "Redwood Analytics",
+      "owner": "Aisha Cole",
+      "stage": "Closed Won",
+      "amount": 140000,
+      "age": 52,
+      "lastActivity": 0
+     },
+     {
+      "id": "DEAL-1179",
+      "account": "Summit Freight Co",
+      "owner": "Jenna Park",
+      "stage": "Negotiation",
+      "amount": 95000,
+      "age": 41,
+      "lastActivity": 16
+     },
+     {
+      "id": "DEAL-1180",
+      "account": "Golden Gate Interiors",
+      "owner": "Marcus Webb",
+      "stage": "Proposal",
+      "amount": 58000,
+      "age": 22,
+      "lastActivity": 3
+     },
+     {
+      "id": "DEAL-1181",
+      "account": "Emerald City Robotics",
+      "owner": "Tomas Diaz",
+      "stage": "Discovery",
+      "amount": 72000,
+      "age": 9,
+      "lastActivity": 1
+     },
+     {
+      "id": "DEAL-1182",
+      "account": "Pacific Crest Realty",
+      "owner": "Aisha Cole",
+      "stage": "Qualification",
+      "amount": 39000,
+      "age": 6,
+      "lastActivity": 2
+     },
+     {
+      "id": "DEAL-1183",
+      "account": "Lakeview Manufacturing",
+      "owner": "Priya Shah",
+      "stage": "Proposal",
+      "amount": 86000,
+      "age": 27,
+      "lastActivity": 14
+     },
+     {
+      "id": "DEAL-1184",
+      "account": "Trailhead Insurance",
+      "owner": "Priya Shah",
+      "stage": "Discovery",
+      "amount": 45000,
+      "age": 11,
+      "lastActivity": 2
+     },
+     {
+      "id": "DEAL-1185",
+      "account": "Nimbus Cloud Services",
+      "owner": "Marcus Webb",
+      "stage": "Qualification",
+      "amount": 61000,
+      "age": 8,
+      "lastActivity": 1
+     },
+     {
+      "id": "DEAL-1186",
+      "account": "Copper Canyon Mining",
+      "owner": "Jenna Park",
+      "stage": "Discovery",
+      "amount": 103000,
+      "age": 13,
+      "lastActivity": 4
+     },
+     {
+      "id": "DEAL-1187",
+      "account": "Vista Del Sol Hotels",
+      "owner": "Tomas Diaz",
+      "stage": "Proposal",
+      "amount": 67000,
+      "age": 19,
+      "lastActivity": 5
+     },
+     {
+      "id": "DEAL-1188",
+      "account": "Timberline Energy",
+      "owner": "Aisha Cole",
+      "stage": "Negotiation",
+      "amount": 124000,
+      "age": 34,
+      "lastActivity": 6
+     },
+     {
+      "id": "DEAL-1189",
+      "account": "Skyline Data Corp",
+      "owner": "Priya Shah",
+      "stage": "Qualification",
+      "amount": 29000,
+      "age": 5,
+      "lastActivity": 1
+     },
+     {
+      "id": "DEAL-1190",
+      "account": "Northbay Credit Union",
+      "owner": "Marcus Webb",
+      "stage": "Discovery",
+      "amount": 54000,
+      "age": 10,
+      "lastActivity": 3
+     },
+     {
+      "id": "DEAL-1191",
+      "account": "Ironwood Construction",
+      "owner": "Jenna Park",
+      "stage": "Negotiation",
+      "amount": 142000,
+      "age": 29,
+      "lastActivity": 9
+     },
+     {
+      "id": "DEAL-1192",
+      "account": "Sequoia Wellness",
+      "owner": "Tomas Diaz",
+      "stage": "Proposal",
+      "amount": 49000,
+      "age": 16,
+      "lastActivity": 2
+     },
+     {
+      "id": "DEAL-1195",
+      "account": "Alpine Trailworks",
+      "owner": "Priya Shah",
+      "stage": "Negotiation",
+      "amount": 49000,
+      "age": 31,
+      "lastActivity": 14
+     },
+     {
+      "id": "DEAL-1196",
+      "account": "Desert Bloom Agritech",
+      "owner": "Aisha Cole",
+      "stage": "Qualification",
+      "amount": 47000,
+      "age": 4,
+      "lastActivity": 1
+     }
+    ]
+   }
+  ],
+  "widgets": [
+   {
+    "id": "w1",
+    "type": "kpi",
+    "title": "Open Pipeline Value",
+    "value": 1420000,
+    "format": "currency",
+    "delta": 6.2,
+    "goodWhen": "up",
+    "spark": [
+     1180000,
+     1240000,
+     1260000,
+     1300000,
+     1350000,
+     1370000,
+     1390000,
+     1420000
+    ],
+    "source": {
+     "datasetId": "deals",
+     "recordIds": [
+      "DEAL-1179",
+      "DEAL-1180",
+      "DEAL-1181",
+      "DEAL-1182",
+      "DEAL-1183",
+      "DEAL-1184",
+      "DEAL-1185",
+      "DEAL-1186",
+      "DEAL-1187",
+      "DEAL-1188",
+      "DEAL-1189",
+      "DEAL-1190",
+      "DEAL-1191",
+      "DEAL-1192",
+      "DEAL-1195",
+      "DEAL-1196"
+     ]
+    },
+    "span": 3
+   },
+   {
+    "id": "w2",
+    "type": "kpi",
+    "title": "Open Deals",
+    "value": 16,
+    "format": "number",
+    "delta": 14.3,
+    "goodWhen": "up",
+    "spark": [
+     11,
+     12,
+     12,
+     13,
+     14,
+     15,
+     15,
+     16
+    ],
+    "span": 3
+   },
+   {
+    "id": "w3",
+    "type": "kpi",
+    "title": "Win Rate (QTD)",
+    "value": 29,
+    "format": "percent",
+    "delta": -6.5,
+    "goodWhen": "up",
+    "spark": [
+     38,
+     36,
+     34,
+     33,
+     32,
+     31,
+     30,
+     29
+    ],
+    "source": {
+     "datasetId": "deals",
+     "recordIds": [
+      "DEAL-1171",
+      "DEAL-1172",
+      "DEAL-1173",
+      "DEAL-1174",
+      "DEAL-1175",
+      "DEAL-1176",
+      "DEAL-1177",
+      "DEAL-1178"
+     ]
+    },
+    "span": 3
+   },
+   {
+    "id": "w4",
+    "type": "kpi",
+    "title": "Avg Sales Cycle",
+    "value": 46,
+    "format": "number",
+    "delta": 15,
+    "goodWhen": "down",
+    "spark": [
+     38,
+     39,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46
+    ],
+    "span": 3
+   },
+   {
+    "id": "w5",
+    "type": "funnel",
+    "title": "Pipeline Stage Funnel",
+    "format": "number",
+    "stages": [
+     {
+      "label": "Qualification",
+      "value": 6
+     },
+     {
+      "label": "Discovery",
+      "value": 6
+     },
+     {
+      "label": "Proposal",
+      "value": 4
+     },
+     {
+      "label": "Negotiation",
+      "value": 5
+     }
+    ],
+    "span": 6,
+    "source": {
+     "datasetId": "deals",
+     "recordIds": [
+      "DEAL-1182",
+      "DEAL-1185",
+      "DEAL-1189",
+      "DEAL-1190",
+      "DEAL-1181",
+      "DEAL-1184",
+      "DEAL-1186",
+      "DEAL-1180",
+      "DEAL-1183",
+      "DEAL-1187",
+      "DEAL-1192",
+      "DEAL-1179",
+      "DEAL-1188",
+      "DEAL-1191",
+      "DEAL-1195"
+     ]
+    }
+   },
+   {
+    "id": "w6",
+    "type": "bar",
+    "title": "Open Pipeline by Owner",
+    "x": [
+     "Marcus Webb",
+     "Jenna Park",
+     "Tomas Diaz",
+     "Aisha Cole",
+     "Priya Shah"
+    ],
+    "series": [
+     {
+      "name": "Pipeline ($)",
+      "values": [
+       173000,
+       336000,
+       188000,
+       241000,
+       209000
+      ]
+     }
+    ],
+    "format": "currency",
+    "span": 6,
+    "source": {
+     "datasetId": "deals",
+     "sampled": true,
+     "total": 16,
+     "recordIds": [
+      "DEAL-1179",
+      "DEAL-1188",
+      "DEAL-1191",
+      "DEAL-1183",
+      "DEAL-1195"
+     ]
+    }
+   },
+   {
+    "id": "w7",
+    "type": "donut",
+    "title": "Open Pipeline Mix by Stage",
+    "items": [
+     {
+      "label": "Qualification",
+      "value": 230000
+     },
+     {
+      "label": "Discovery",
+      "value": 274000
+     },
+     {
+      "label": "Proposal",
+      "value": 260000
+     },
+     {
+      "label": "Negotiation",
+      "value": 410000
+     }
+    ],
+    "format": "currency",
+    "span": 4,
+    "source": {
+     "datasetId": "deals",
+     "sampled": true,
+     "total": 16
+    }
+   },
+   {
+    "id": "w8",
+    "type": "line",
+    "title": "Pipeline Value Trend (last 8 weeks)",
+    "x": [
+     "Jul 17",
+     "Jul 24",
+     "Jul 31",
+     "Aug 7",
+     "Aug 14",
+     "Aug 21",
+     "Aug 28",
+     "Sep 4"
+    ],
+    "series": [
+     {
+      "name": "Open Pipeline",
+      "values": [
+       1180000,
+       1240000,
+       1260000,
+       1300000,
+       1350000,
+       1370000,
+       1390000,
+       1420000
+      ]
+     }
+    ],
+    "format": "currency",
+    "span": 8
+   },
+   {
+    "id": "w9",
+    "type": "gauge",
+    "title": "Win Rate vs Target",
+    "value": 29,
+    "max": 100,
+    "target": 35,
+    "format": "percent",
+    "span": 4,
+    "source": {
+     "datasetId": "deals",
+     "recordIds": [
+      "DEAL-1171",
+      "DEAL-1172",
+      "DEAL-1173",
+      "DEAL-1174",
+      "DEAL-1175",
+      "DEAL-1176",
+      "DEAL-1177",
+      "DEAL-1178"
+     ]
+    }
+   },
+   {
+    "id": "w10",
+    "type": "table",
+    "title": "Stalled & High-Priority Deals",
+    "columns": [
+     {
+      "key": "account",
+      "label": "Account"
+     },
+     {
+      "key": "owner",
+      "label": "Owner"
+     },
+     {
+      "key": "stage",
+      "label": "Stage"
+     },
+     {
+      "key": "amount",
+      "label": "Amount",
+      "format": "currency"
+     },
+     {
+      "key": "lastActivity",
+      "label": "Last Activity (days)",
+      "format": "number"
+     }
+    ],
+    "rows": [
+     {
+      "account": "Ironwood Construction",
+      "owner": "Jenna Park",
+      "stage": "Negotiation",
+      "amount": 142000,
+      "lastActivity": 9
+     },
+     {
+      "account": "Timberline Energy",
+      "owner": "Aisha Cole",
+      "stage": "Negotiation",
+      "amount": 124000,
+      "lastActivity": 6
+     },
+     {
+      "account": "Summit Freight Co",
+      "owner": "Jenna Park",
+      "stage": "Negotiation",
+      "amount": 95000,
+      "lastActivity": 16
+     },
+     {
+      "account": "Lakeview Manufacturing",
+      "owner": "Priya Shah",
+      "stage": "Proposal",
+      "amount": 86000,
+      "lastActivity": 14
+     },
+     {
+      "account": "Alpine Trailworks",
+      "owner": "Priya Shah",
+      "stage": "Negotiation",
+      "amount": 49000,
+      "lastActivity": 14
+     }
+    ],
+    "highlight": {
+     "key": "lastActivity",
+     "equals": 16
+    },
+    "span": 8,
+    "source": {
+     "datasetId": "deals",
+     "recordIds": [
+      "DEAL-1191",
+      "DEAL-1188",
+      "DEAL-1179",
+      "DEAL-1183",
+      "DEAL-1195"
+     ]
+    }
+   },
+   {
+    "id": "w11",
+    "type": "list",
+    "title": "This Week's Priority Actions",
+    "items": [
+     {
+      "label": "DEAL-1191 Ironwood Construction \u2014 $142K, Negotiation",
+      "meta": "Jenna Park \u00b7 29 days in stage",
+      "status": "warn"
+     },
+     {
+      "label": "DEAL-1179 Summit Freight Co \u2014 $95K, no touch 16 days",
+      "meta": "Jenna Park \u00b7 re-engage now",
+      "status": "bad"
+     },
+     {
+      "label": "DEAL-1183 Lakeview Manufacturing \u2014 $86K, no touch 14 days",
+      "meta": "Priya Shah \u00b7 re-engage now",
+      "status": "bad"
+     },
+     {
+      "label": "DEAL-1188 Timberline Energy \u2014 $124K, Negotiation",
+      "meta": "Aisha Cole \u00b7 on track",
+      "status": "good"
+     },
+     {
+      "label": "DEAL-1195 Alpine Trailworks \u2014 $49K, stalled 14 days",
+      "meta": "Priya Shah \u00b7 re-engage now",
+      "status": "bad"
+     }
+    ],
+    "span": 4
+   }
+  ]
+ },
+ "ms": 35085,
+ "model": "claude-sonnet-5",
+ "fallback": false,
+ "created": "2026-09-11T22:19:47.037Z"
+}

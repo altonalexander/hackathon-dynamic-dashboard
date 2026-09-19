@@ -1,0 +1,9 @@
+.card-title { align-items:flex-start; flex-wrap:wrap; }
+.metric-drill { display:block; border:0; padding:0; background:transparent; color:inherit; text-align:left; cursor:pointer; }
+.metric-drill:hover { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:6px; }
+.metric-drill:focus-visible { outline:2px solid var(--prism); outline-offset:5px; border-radius:3px; }
+.card-actions { display:flex; align-items:center; gap:8px; margin-left:auto; }
+.view-data { display:inline-flex; align-items:center; gap:5px; padding:4px 0 4px 5px; margin-top:-4px; background:none; border:0; color:var(--muted); font:500 10px 'DM Sans',sans-serif; white-space:nowrap; cursor:pointer; }
+.view-data:hover { color:var(--text); text-decoration:underline; text-underline-offset:3px; }
+.view-data:focus-visible { outline:2px solid var(--prism); outline-offset:3px; border-radius:3px; }
+@media(pointer:coarse) { .view-data { min-height:44px; padding:8px 4px; margin-top:-8px; } }

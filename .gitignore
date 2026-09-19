@@ -1,0 +1,11 @@
+# runtime output and logs (contain visitor IPs)
+app/requests.log
+app/server.out
+app/.sandbox/
+
+# infrastructure config
+tunnel-config-backup-*.json
+
+node_modules/
+.env*
+.DS_Store

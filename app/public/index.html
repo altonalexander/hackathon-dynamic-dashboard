@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prism — Your question. A clearer picture.</title>
+<meta name="color-scheme" content="dark">
+<base href="/">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="prism.css?v=1">
+<link rel="stylesheet" href="minimal.css?v=1">
+<link rel="stylesheet" href="data-links.css?v=1">
+<link rel="stylesheet" href="responsive.css?v=2">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+  <a class="brand" href="./" id="brand" aria-label="Prism home"><span class="logo" aria-hidden="true">◈</span><span>prism<span class="brand-dot">.</span></span></a>
+  <nav class="section-nav" id="sectionNav" aria-label="Dashboard sections" hidden>
+    <button type="button" id="dashboardTab" aria-current="page">Dashboard</button>
+    <button type="button" id="explorerTab">Data explorer</button>
+  </nav>
+  </div>
+  <div class="topbar-right">
+    <div class="theme-switch" id="themeSwitch" role="group" aria-label="Dashboard theme" hidden>
+      <button type="button" data-theme-choice="dark" aria-pressed="true"><span class="theme-swatch dark" aria-hidden="true"></span>Dark</button>
+      <button type="button" data-theme-choice="light" aria-pressed="false"><span class="theme-swatch light" aria-hidden="true"></span>Light</button>
+      <button type="button" data-theme-choice="midnight" aria-pressed="false"><span class="theme-swatch midnight" aria-hidden="true"></span>Midnight</button>
+      <button type="button" data-theme-choice="party" aria-pressed="false"><span class="theme-swatch party" aria-hidden="true"></span>Party</button>
+    </div>
+    <button class="btn ghost" id="newBtn" hidden>+ New dashboard</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <h1>Your next dashboard.<br><em>Just ask.</em></h1>
+    <p class="lede">Describe what you want to track. We’ll build the view.</p>
+    <form class="prompt" id="promptForm" autocomplete="off">
+      <textarea id="prompt" aria-label="Describe the dashboard you need" rows="2" maxlength="1000" placeholder="Build a weekly dashboard for our West-region sales manager. Show revenue, pipeline health, and which deals need attention…"></textarea>
+      <div class="composer-bottom"><button class="btn primary" type="submit" id="goBtn">Create dashboard <span aria-hidden="true">↗</span></button></div>
+    </form>
+    <div class="examples-label">Or start with</div>
+    <div class="chips" id="chips"></div>
+    <div class="history" id="historyWrap" hidden>
+      <h2>This session</h2>
+      <div class="history-list" id="history"></div>
+    </div>
+    <p class="demo-note">Illustrative data. No integrations needed.</p>
+  </section>
+
+  <section class="loading" id="loading" hidden aria-live="polite">
+    <div class="loading-head">
+      <div class="pulse"></div>
+      <div>
+        <div class="status" id="status">Reading the request…</div>
+        <div class="loading-prompt" id="loadingPrompt"></div>
+      </div>
+      <div class="timer" id="timer">0.0s</div>
+    </div>
+    <div class="progress"><i id="progress"></i></div>
+    <div class="grid skeleton" id="skeleton"></div>
+  </section>
+
+  <section class="dash" id="dash" hidden></section>
+  <section class="explorer" id="explorer" aria-labelledby="explorerTitle" hidden>
+    <h1 id="explorerTitle">Data explorer</h1>
+    <p class="explorer-description">Explore the individual records behind your dashboard. This is generated demo data, not a live integration.</p>
+    <div class="explorer-controls">
+      <label>Dataset<select id="datasetSelect"></select></label>
+      <label>Search rows<input id="dataSearch" type="search" placeholder="Search this dataset…"></label>
+    </div>
+    <div id="dataSummary" class="data-summary" role="status"></div>
+    <div class="card explorer-card"><div class="table-wrap" id="dataTable"></div></div>
+    <details class="raw-data"><summary>View records as JSON</summary><pre id="rawData"></pre></details>
+  </section>
+</main>
+
+<div class="tooltip" id="tooltip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

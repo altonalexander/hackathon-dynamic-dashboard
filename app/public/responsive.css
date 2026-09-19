@@ -1,0 +1,151 @@
+/* ============================================================
+   responsive.css — agent-D
+   Mobile / touch layer. Loads LAST, after style.css, prism.css
+   and minimal.css. Additive only: no palette, no theme, no
+   desktop rule is changed. Everything here is inside a media
+   query so the 1440 desktop view is untouched.
+   ============================================================ */
+
+/* --- global safety: nothing may widen the page --- */
+html, body { max-width: 100%; overflow-x: clip; }
+@supports not (overflow-x: clip) { html, body { overflow-x: hidden; } }
+.card, .card-body, .insights, .dash-head, .hero { min-width: 0; }
+/* long titles, prompts and labels wrap instead of pushing the page out */
+.dash-head h1, .dash-head .sub, .asked, .loading-prompt, .hist-item b,
+.card-title, .explorer h1, .hero h1, .lede, .status {
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.card-title { align-items: baseline; }
+/* tables keep their scrolling to themselves (no page back-swipe) */
+.table-wrap { overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+/* charts never paint outside their card */
+.card-body svg { max-width: 100%; }
+/* the donut legend's 140px min-width pushed it out of narrow cards (it is
+   centred, so it bled off BOTH edges). flex:1 still fills the space. */
+.donut-wrap, .donut-legend { min-width: 0; }
+.donut-legend span:first-child { min-width: 0; }
+
+/* ============================================================
+   TOUCH / COARSE POINTER — ~44px tap targets everywhere
+   ============================================================ */
+@media (pointer: coarse) {
+  .btn, .chip, #newBtn { min-height: 44px; }
+  .chip { padding: 11px 14px; }
+  .brand { min-height: 44px; }
+  .theme-switch { padding: 4px; }
+  .theme-switch button { min-height: 40px; padding: 10px 12px; }
+  .section-nav { gap: 20px; }
+  .section-nav button { min-height: 46px; padding: 14px 2px; }
+  .hist-item { min-height: 56px; padding: 14px; }
+  .explorer-controls select, .explorer-controls input { min-height: 46px; }
+  .raw-data summary { min-height: 44px; display: flex; align-items: center; }
+  /* the header "Copy link" badge is a real button — give it a thumb */
+  #copyLink { min-height: 40px; padding: 9px 14px; font-size: 12px; }
+  /* the KPI number is a drill-down button — it needs a thumb-sized hit area */
+  .metric-drill { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; }
+  /* hover-only dimming is meaningless on touch and leaves charts stuck dim */
+  .dim .hot:not(:hover) { opacity: 1; }
+  /* tapped chart segment is highlighted by .tt-active instead */
+  .hot.tt-active { opacity: 1; }
+  .dim .hot:not(.tt-active) { opacity: .5; }
+  tbody tr:hover td { background: transparent; }
+}
+
+/* tooltip placed by a finger: never under the thumb, never off-screen */
+.tooltip.touch { max-width: min(280px, calc(100vw - 24px)); }
+
+/* ============================================================
+   TABLET — 12 columns is too fine below ~900px, use 6.
+   `grid-column: span N` is clamped to the track count, so a
+   span-12 table still fills the row and a span-3 KPI is a half.
+   ============================================================ */
+@media (min-width: 701px) and (max-width: 900px) {
+  .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .insights ul { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PHONE — single column (style.css already does the grid);
+   this tightens the shell so nothing eats the screen.
+   ============================================================ */
+@media (max-width: 700px) {
+  main { padding-left: 18px; padding-right: 18px; }
+  /* the bar is sticky — it must stay one or two short rows, never a block */
+  .topbar { height: auto; min-height: 0; padding: 8px 0; gap: 8px 10px; flex-wrap: wrap; align-items: center; }
+  .topbar-left { display: flex; align-items: center; gap: 14px; min-width: 0; flex: 0 1 auto; }
+  .brand { font-size: 20px; flex: none; }
+  .brand .logo { font-size: 24px; }
+  .topbar-right { gap: 8px; flex: 0 1 auto; align-items: center; }
+  /* once a dashboard exists the right side gets its own row, so the bar is
+     always exactly two short rows instead of three stacked blocks */
+  .topbar:has(#themeSwitch:not([hidden])) .topbar-right { flex: 1 0 100%; justify-content: space-between; }
+  /* section tabs sit inline beside the brand, no top margin, no full-width border */
+  .topbar .section-nav { margin: 0; border-bottom: 0; gap: 4px; flex: 0 1 auto; }
+  .topbar .section-nav button { padding: 10px 8px; min-height: 40px; font-size: 12px; border-bottom-width: 2px; white-space: nowrap; }
+  /* theme picker becomes swatches only — the labels do not fit next to the tabs */
+  .topbar .theme-switch button { padding: 0; min-width: 40px; min-height: 40px; justify-content: center; font-size: 0; gap: 0; }
+  .topbar .theme-switch button .theme-swatch { width: 13px; height: 13px; margin: 0; }
+  #newBtn { padding: 8px 12px; font-size: 12px; min-height: 44px; white-space: nowrap; }
+
+  .hero { margin-top: 34px; }
+  .lede { margin-bottom: 22px; }
+  .prompt textarea { font-size: 16px; } /* 16px stops iOS Safari zooming on focus */
+  .composer-bottom .btn.primary { width: 100%; justify-content: center; }
+
+  /* dashboard header stacks: title, then badges, then filters */
+  .dash-head { flex-direction: column; gap: 10px; }
+  .dash-head h1 { font-size: clamp(20px, 6vw, 26px); letter-spacing: -.4px; }
+  .meta { max-width: none; justify-content: flex-start; row-gap: 8px; }
+  .badge { font-size: 11px; }
+  .filters { gap: 6px; }
+  .insights { padding: 13px 15px; }
+  .insights ul { grid-template-columns: 1fr; gap: 10px; }
+
+  .grid { gap: 12px; }
+  .card { padding: 13px 14px; }
+  .kpi-value { font-size: 26px; }
+  .spark { width: 84px; height: 34px; }
+
+  /* donut: circle above, legend below, both full width */
+  .donut-wrap { flex-direction: column; gap: 12px; }
+  .donut-wrap svg { width: 150px; height: 150px; }
+  .donut-legend { width: 100%; min-width: 0; }
+
+  .fstage { grid-template-columns: minmax(64px, 34%) 1fr; }
+  .table-wrap { max-height: 320px; }
+  .explorer-card .table-wrap { max-height: 60vh; }
+  .explorer-controls { gap: 12px; }
+  .explorer-controls label { max-width: none; min-width: 0; }
+  .loading-head { gap: 10px; }
+  .status { font-size: 15px; }
+  .history-list { grid-template-columns: 1fr; }
+  .tooltip { max-width: calc(100vw - 24px); }
+}
+
+/* --- very narrow (320px class) --- */
+@media (max-width: 380px) {
+  main { padding-left: 14px; padding-right: 14px; }
+  .hero h1 { font-size: 32px; letter-spacing: -1.2px; }
+  .card { padding: 12px; }
+  .kpi-value { font-size: 23px; }
+  .spark { width: 68px; }
+  .kpi-row { gap: 6px; }
+  .chip { font-size: 12px; }
+  .theme-switch button { padding: 10px 8px; font-size: 10px; }
+  .theme-switch button span.theme-swatch { margin: 0; }
+  .fstage { grid-template-columns: minmax(56px, 36%) 1fr; font-size: 11px; }
+  .donut-wrap svg { width: 136px; height: 136px; }
+}
+
+/* ============================================================
+   SHORT VIEWPORTS (phone landscape, 200% zoom on a laptop)
+   The sticky bar must not eat a third of the screen.
+   ============================================================ */
+@media (max-height: 500px) {
+  .topbar { position: static; height: auto; min-height: 0; padding: 8px 0; }
+  .hero { margin-top: 20px; }
+  .hero h1 { font-size: clamp(22px, 5vw, 30px); margin-bottom: 8px; }
+  .lede { margin-bottom: 14px; font-size: 13px; }
+  .prompt textarea { min-height: 56px; }
+  .table-wrap { max-height: 60vh; }
+}

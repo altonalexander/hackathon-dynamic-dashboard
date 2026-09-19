@@ -1,0 +1,54 @@
+{
+  "title": "West Region Sales — Weekly Pulse",
+  "subtitle": "For Dana, Regional Sales Manager · last 12 weeks",
+  "domain": "sales",
+  "accent": "#4f8cff",
+  "filters": ["Last 12 weeks", "West region", "All reps"],
+  "insights": [
+    "Closed-won is up 12.4% vs prior period, driven by two enterprise deals in Seattle.",
+    "Pipeline coverage fell to 2.1x — below the 3x target for next quarter.",
+    "Win rate on deals > $50k dropped to 18%; review discounting with Marco's team.",
+    "Acme renewal ($84k) is at risk and closes Friday."
+  ],
+  "widgets": [
+    { "id": "w1", "type": "kpi", "title": "Closed-won", "span": 3, "value": 1284000, "format": "currency", "delta": 12.4, "goodWhen": "up", "spark": [3,4,5,4,6,7,6,8,9,8,10,11] },
+    { "id": "w2", "type": "kpi", "title": "Pipeline coverage", "span": 3, "value": 2.1, "format": "number", "delta": -8.7, "goodWhen": "up", "spark": [3.2,3.1,3,2.9,2.8,2.6,2.5,2.4,2.3,2.2,2.1,2.1] },
+    { "id": "w3", "type": "kpi", "title": "Win rate", "span": 3, "value": 27.5, "format": "percent", "delta": 1.9, "goodWhen": "up", "spark": [24,25,26,25,27,26,27,28,27,27,28,27.5] },
+    { "id": "w4", "type": "kpi", "title": "Avg sales cycle", "span": 3, "value": 38, "format": "number", "delta": 4.2, "goodWhen": "down", "spark": [33,34,35,34,36,36,37,37,38,38,38,38] },
+    { "id": "w5", "type": "line", "title": "Bookings vs target", "span": 8, "format": "currency",
+      "x": ["W1","W2","W3","W4","W5","W6","W7","W8","W9","W10","W11","W12"],
+      "series": [
+        {"name":"Bookings","values":[82000,91000,88000,97000,104000,99000,112000,118000,109000,121000,128000,135000]},
+        {"name":"Target","values":[100000,100000,100000,105000,105000,105000,110000,110000,110000,115000,115000,115000]}
+      ] },
+    { "id": "w6", "type": "donut", "title": "Pipeline by stage", "span": 4, "format": "currency",
+      "items": [{"label":"Discovery","value":920000},{"label":"Proposal","value":610000},{"label":"Negotiation","value":340000},{"label":"Commit","value":210000}] },
+    { "id": "w7", "type": "bar", "title": "Bookings by rep", "span": 6, "horizontal": true, "format": "currency",
+      "x": ["Dana K.","Marco R.","Priya S.","Leo T.","Ana M."],
+      "series": [{"name":"Q3","values":[312000,284000,251000,198000,164000]}] },
+    { "id": "w8", "type": "funnel", "title": "Lead → Close funnel", "span": 6, "format": "number",
+      "stages": [{"label":"Leads","value":5200},{"label":"MQL","value":2100},{"label":"SQL","value":860},{"label":"Opportunity","value":410},{"label":"Won","value":112}] },
+    { "id": "w9", "type": "bar", "title": "New vs expansion revenue", "span": 6, "stacked": true, "format": "currency",
+      "x": ["Jul","Aug","Sep"],
+      "series": [{"name":"New","values":[240000,265000,290000]},{"name":"Expansion","values":[120000,135000,160000]}] },
+    { "id": "w10", "type": "gauge", "title": "Quarter attainment", "span": 3, "value": 87, "max": 100, "target": 90, "format": "percent" },
+    { "id": "w11", "type": "text", "title": "Note", "span": 3, "markdown": "**Focus this week:** close Acme and Northwind; *two* Commit deals slipped from last week." },
+    { "id": "w12", "type": "table", "title": "Top open deals", "span": 8,
+      "columns": [{"key":"deal","label":"Deal"},{"key":"owner","label":"Owner"},{"key":"amount","label":"Amount","format":"currency"},{"key":"stage","label":"Stage"},{"key":"risk","label":"Risk"}],
+      "rows": [
+        {"deal":"Acme renewal","owner":"Dana K.","amount":84000,"stage":"Negotiation","risk":"High"},
+        {"deal":"Northwind expansion","owner":"Marco R.","amount":126000,"stage":"Commit","risk":"Low"},
+        {"deal":"Globex platform","owner":"Priya S.","amount":210000,"stage":"Proposal","risk":"Medium"},
+        {"deal":"Initech seats","owner":"Leo T.","amount":46000,"stage":"Discovery","risk":"High"}
+      ],
+      "highlight": {"key":"risk","equals":"High"} },
+    { "id": "w13", "type": "list", "title": "Watchlist", "span": 4,
+      "items": [
+        {"label":"Acme renewal at risk","meta":"$84k · closes Fri","status":"bad"},
+        {"label":"Globex legal review","meta":"$210k · waiting 6 days","status":"warn"},
+        {"label":"Northwind signed PO","meta":"$126k · today","status":"good"},
+        {"label":"QBR with Initech","meta":"Thu 10:00","status":"neutral"}
+      ] },
+    { "id": "w14", "type": "heatmap", "title": "Unknown widget test", "span": 12 }
+  ]
+}

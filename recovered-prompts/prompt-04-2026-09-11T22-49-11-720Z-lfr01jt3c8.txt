@@ -1,0 +1,7 @@
+Build an interactive dashboard a business operator can open and understand. Use the sample/dummy company data available in this environment. Cover all three areas:
+
+
+Sales — current performance (e.g. revenue, pipeline, wins/losses, or trends). Make the “so what” obvious.
+Marketing — what’s working (e.g. campaigns, leads, conversion, channel performance). Call out one clear insight.
+Open customer service tickets — open tickets with enough detail to act (status, priority, age, owner or queue). Surface what’s urgent.
+Add anything else you think would be useful.
